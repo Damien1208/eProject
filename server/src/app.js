@@ -1,15 +1,12 @@
-const   express = require('express'),
-        bodyParser = require('body-parser'),
-        cors = require('cors'),
-        morgan = require('morgan')
+const express = require('express'),
+  app = express(),
+  bodyParser = require('body-parser'),
+  cors = require('cors'),
+  router = require('./router')
 
-const app = express()
-app.use(morgan('combined'))
-app.use(bodyParser.json())
 app.use(cors())
-app.get('/', function(req, res) {
-    res.send('my ecommerce app')
-})
+  .use(bodyParser.json())
+  .use(router)
 
 app.set('port', process.env.PORT || 8081)
 app.listen(process.env.PORT || 8081, () => console.log('listen on port 8081'))
