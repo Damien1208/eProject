@@ -5,3 +5,9 @@ exports.getAll = async (req, res) => {
         await user.getAll()
     );
 };
+
+exports.getById = async (req, res) => {
+    res.json(
+        await user.getById(req.params.id)
+    );
+};
