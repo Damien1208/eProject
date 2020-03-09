@@ -11,3 +11,10 @@ exports.getById = async (req, res) => {
         await user.getById(req.params.id)
     );
 };
+
+exports.addOne = async (req, res) => {
+    const newUser = req.body
+    res.json(
+        await user.addOne(newUser)
+    )
+}
