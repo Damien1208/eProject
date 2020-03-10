@@ -1,8 +1,8 @@
-const express = require('express'),
-  app = express(),
-  bodyParser = require('body-parser'),
-  cors = require('cors'),
-  router = require('./router')
+const express = require('express')
+const app = express()
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const router = require('./router')
 
 app.use(cors())
   .use(bodyParser.json())

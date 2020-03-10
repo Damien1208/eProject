@@ -8,3 +8,13 @@ exports.getAll = () => {
     })
   })
 }
+
+exports.createOne = (newItem) => {
+  return new Promise((resolve, reject) => {
+    db.query(`INSERT INTO item(productName, description, image, price) 
+        VALUES('${newItem.productName}', '${newItem.description}', '${newItem.image}', '${newItem.price}')`, function (err, addRow) {
+      if (err) console.log(err)
+      resolve(addRow)
+    })
+  })
+}

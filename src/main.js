@@ -4,7 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import VueResource from 'vue-resource'
 
+Vue.use(VueResource)
 Vue.config.productionTip = false
 // Install BootstrapVue
 Vue.use(BootstrapVue)

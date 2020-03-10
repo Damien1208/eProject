@@ -1,43 +1,53 @@
 <template>
   <div>
-          <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+      <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group
         id="input-group-1"
-        label="Email address:"
+        label="Product:"
         label-for="input-1"
-        description="We'll never share your email with anyone else."
+        description="What do you sell..."
       >
         <b-form-input
           id="input-1"
-          v-model="form.email"
-          type="email"
-          required
-          placeholder="Enter email"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-2" label="Your Name:" label-for="input-2">
-        <b-form-input
-          id="input-2"
-          v-model="form.name"
-          required
-          placeholder="Enter name"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-3" label="Product:" label-for="input-3" description="What do you sell...">
-        <b-form-input
-          id="input-3"
           v-model="form.product"
           required
+          placeholder="Enter your product"
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
-          <b-form-checkbox value="me">Check me out</b-form-checkbox>
-          <b-form-checkbox value="that">Check that out</b-form-checkbox>
-        </b-form-checkbox-group>
+      <b-form-group id="input-group-2" label="Description:" label-for="input-2">
+        <b-form-input
+          id="input-2"
+          v-model="form.description"
+          placeholder="Enter a description"
+        ></b-form-input>
+      </b-form-group>
+
+      <b-form-group
+        id="input-group-3"
+        label="Image:"
+        label-for="input-3"
+        description="Picture of your product"
+        placeholder="Download your image"
+      >
+        <b-form-input
+          id="input-3"
+          v-model="form.image"
+          required
+        ></b-form-input>
+      </b-form-group>
+
+      <b-form-group
+        id="input-group-4"
+        label="Price:"
+        label-for="input-4"
+        description="Enter your price">
+        <b-form-input
+          v-model="form.price"
+          id="input-4"
+          required
+        >
+        </b-form-input>
       </b-form-group>
 
       <b-button type="submit" variant="primary">Submit</b-button>
@@ -55,27 +65,27 @@ export default {
   data () {
     return {
       form: {
-        email: '',
-        name: '',
-        product: null,
-        checked: []
+        product: '',
+        description: '',
+        image: '',
+        price: ''
       },
-      foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
       show: true
     }
   },
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      alert(JSON.stringify(this.form))
+      let url = 'http://localhost:8081/item/create'
+      this.$http.post(url, JSON.stringify(this.form)).then(response => response.data)
     },
     onReset (evt) {
       evt.preventDefault()
       // Reset our form values
-      this.form.email = ''
-      this.form.name = ''
-      this.form.product = null
-      this.form.checked = []
+      this.form.product = ''
+      this.form.description = ''
+      this.form.image = ''
+      this.form.price = ''
       // Trick to reset/clear native browser form validation state
       this.show = false
       this.$nextTick(() => {
