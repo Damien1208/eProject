@@ -6,8 +6,7 @@
 </template>
 
 <script>
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import Items from './item/Items'
 
 export default {
@@ -25,5 +24,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .homepage {
+    text-align: center;
+  }
 </style>
