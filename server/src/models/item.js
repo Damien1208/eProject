@@ -18,3 +18,12 @@ exports.createOne = (newItem) => {
     })
   })
 }
+
+exports.getOne = (id) => {
+  return new Promise((resolve, reject) => {
+    db.query(`SELECT * FROM item WHERE id = ${id}`, function (err, selectedRow) {
+      if (err) console.log(err)
+      resolve(selectedRow)
+    })
+  })
+}
