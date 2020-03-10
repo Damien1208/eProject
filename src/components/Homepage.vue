@@ -56,5 +56,14 @@ export default {
 <style scoped>
 .list {
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 80%;
+  height: 90%;
+}
+
+.list li {
+  margin-left: 20px;
 }
 </style>
