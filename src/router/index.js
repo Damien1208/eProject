@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Homepage from '@/components/Homepage'
-import CreateItem from '@/components/CreateItem'
+import CreateItem from '@/components/item/CreateItem'
 
 Vue.use(Router)
 
