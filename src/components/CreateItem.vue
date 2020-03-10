@@ -46,6 +46,7 @@
     <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
     </b-card>
+    <b-button variant="danger" @click="goBack">Go back</b-button>
   </div>
 </template>
 
@@ -80,6 +81,9 @@ export default {
       this.$nextTick(() => {
         this.show = true
       })
+    },
+    goBack () {
+      this.$router.push('/')
     }
   }
 }

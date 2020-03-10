@@ -19,7 +19,7 @@
         </li>
       </ul>
     </div>
-    <b-button variant="primary">Add your product</b-button>
+    <b-button variant="primary" @click="goToAdd">Add your product</b-button>
   </div>
 </template>
 
@@ -41,6 +41,9 @@ export default {
         .then(stream => stream.json())
         .then(data => (this.items = data))
         .catch(error => console.error(error))
+    },
+    goToAdd () {
+      this.$router.push('/item/create')
     }
   },
   mounted () {
