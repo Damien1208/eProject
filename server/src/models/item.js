@@ -20,10 +20,20 @@ exports.createOne = (newItem) => {
 }
 
 exports.getOne = (id) => {
+  console.log(id)
   return new Promise((resolve, reject) => {
     db.query(`SELECT * FROM item WHERE id = ${id}`, function (err, selectedRow) {
       if (err) console.log(err)
       resolve(selectedRow)
+    })
+  })
+}
+
+exports.deleteOne = (id) => {
+  return new Promise((resolve, reject) => {
+    db.query(`DELETE FROM item WHERE id = ${id}`, function (err, deletedRow) {
+      if (err) console.log(err)
+      resolve(deletedRow)
     })
   })
 }

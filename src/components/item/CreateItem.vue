@@ -76,7 +76,7 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      let url = 'http://localhost:8081/item/create'
+      let url = 'http://localhost:8081/items/create'
       this.$http.post(url, JSON.stringify(this.form)).then(response => response.data)
     },
     onReset (evt) {

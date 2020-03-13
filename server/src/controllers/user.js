@@ -13,11 +13,11 @@ exports.addOne = async (req, res) => {
   res.send(await user.addOne(newUser))
 }
 
-exports.deleteOne = function (req, res) {
+exports.deleteOne = async (req, res) => {
   console.log('heyyyyyy')
-  // res.send(
-  //     await user.deleteOne(req.params.id)
-  // )
+  res.send(
+    await user.deleteOne(req.params.id)
+  )
 }
 
 exports.updateOne = async (req, res) => {

@@ -2,27 +2,21 @@
    <div>
       <ul class="list">
         <li v-for="item in items" :key="item.id">
-          <b-card
-            :title="item.productName"
-            :img-src="item.image"
-            img-alt="Image"
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2"
-          >
-            <b-card-text>{{item.description}}</b-card-text>
-            <b-card-text>{{item.price}} €</b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
+         <Item :item="item" :reload="fetchItems"/>
         </li>
       </ul>
-      <b-button variant="primary" @click="goToAdd">Add your product</b-button>
+      <b-button variant="primary" @click="goToAdd">Sell your product</b-button>
     </div>
 </template>
 
 <script>
+import Item from './Item'
+
 export default {
   name: 'Items',
+  components: {
+    Item
+  },
   data () {
     return {
       items: []
@@ -58,5 +52,6 @@ export default {
 
 .list li {
   margin-left: 20px;
+  height: 10rem;
 }
 </style>
